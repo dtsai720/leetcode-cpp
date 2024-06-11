@@ -1,0 +1,47 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: "v4.0.0-alpha.8"
+    hooks:
+      - id: prettier
+
+  - repo: https://github.com/thlorenz/doctoc
+    rev: v2.2.0
+    hooks:
+      - id: doctoc
+
+  - repo: local
+    hooks:
+      - id: lint
+        name: cpp lint
+        entry: make lint
+        types: [c++]
+        language: system
+        files: \.cpp$
+
+      - id: unittest
+        name: unittest
+        entry: make test
+        types: [c++]
+        language: system
+        files: \.cpp$
+
+      - id: check-makefile
+        name: makefile check
+        entry: checkmake Makefile
+        types: [makefile]
+        language: system
+
+      - id: check-bash
+        name: bash check
+        entry: shellcheck unittest.sh
+        types: [shell]
+        language: system
