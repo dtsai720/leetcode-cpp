@@ -1,0 +1,35 @@
+name: LeetCode CPP CI
+
+on: [push]
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'schedule' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: sudo apt-get install -y clang-format
+
+      - name: Run Lint
+        run: make lint
+
+  unittest:
+    name: unittest
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'schedule' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: |
+          git clone https://github.com/google/googletest.git -b v1.14.0
+          cd googletest
+          mkdir build && cd build
+          cmake .. && make
+          sudo make install
+
+      - name: Run Unittest
+        run: ./unittest.sh
