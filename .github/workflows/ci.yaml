@@ -10,10 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install clang-format
+      - name: Install Dependencies
         run: sudo apt-get install -y clang-format
 
-      - name: Run CPP Unit Test
+      - name: Run Lint
         run: make lint
 
   unittest:
@@ -31,5 +31,5 @@ jobs:
           cmake .. && make
           sudo make install
 
-      - name: Run CPP Unit Test
-        run: cd cpp && ./unittest.sh
+      - name: Run Unittest
+        run: ./unittest.sh
