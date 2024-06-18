@@ -30,3 +30,4 @@ Practice leetcode with CPP
 | Coin Change II | [Link](https://leetcode.com/problems/coin-change-ii) | [Link](./include/coin_change_ii.h) |
 | Subarray Sums Divisible By K | [Link](https://leetcode.com/problems/subarray-sums-divisible-by-k) | [Link](./include/subarray_sums_divisible_by_k.h) |
 | Maximum Compatibility Score Sum | [Link](https://leetcode.com/problems/maximum-compatibility-score-sum) | [Link](./include/maximum_compatibility_score_sum.h) |
+| Most Profit Assigning Work | [Link](https://leetcode.com/problems/most-profit-assigning-work) | [Link](./include/most_profit_assigning_work.h) |
